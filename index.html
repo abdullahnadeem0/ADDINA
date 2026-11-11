@@ -3272,6 +3272,37 @@
    <script src="assets/js/ajax-form.js"></script>
    <script src="assets/js/beforeafter.jquery-1.0.0.min.js"></script>
    <script src="assets/js/main.js"></script>
+   <script>
+      // Disable Right Click
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
+
+// Disable F1, F11, F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+document.addEventListener("keydown", (e) => {
+  if (
+    e.key === "F1" ||
+    e.key === "F11" ||
+    e.key === "F12" ||
+    (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key.toUpperCase())) ||
+    (e.ctrlKey && e.key.toUpperCase() === "U")
+  ) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+});
+
+// Disable Inspect Element shortcuts
+document.addEventListener("keydown", (e) => {
+  if (
+    e.key === "F12" ||
+    (e.ctrlKey && e.shiftKey && e.key.toUpperCase() === "I")
+  ) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+  }
+});
+   </script>
 </body>
 
 </html>
